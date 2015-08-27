@@ -1,0 +1,19 @@
+---
+
+# Contains the package set of instructions.
+
+# If we need specific packages from yum
+  - name: yum  |  install additional packages
+    yum: name={{item}}
+    with_items: yum_additional_packages
+
+
+    #NOTE if you need to restart services,
+    # 1. Fill up the /vars/main.yml dependent_services
+    # 2. Add a <notify restart dependent services > at the end
+    #  of the task which will invoke a handler
+
+  - name: hostname | set
+    sudo: yes
+    command: hostnamectl set-hostname {{ integration_hostname }}
+    notify: restart dependent services

@@ -1,0 +1,6 @@
+---
+  # Global switches
+  hostname_enabled: yes
+
+  # Global yum instruction
+  yum_additional_packages:  []

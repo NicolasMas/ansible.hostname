@@ -1,0 +1,11 @@
+---
+
+# application variables
+# From the inventory (we are running this playbook as a provisionner on an already running machine)
+hostname_hostname: "{{inventory_hostname}}"
+
+# STRICTLY for local integration tests
+integration_hostname: local.integration.serv.sg
+
+# If we need to restart services after the change
+dependent_services: []
